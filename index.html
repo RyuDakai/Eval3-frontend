@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Calorías Quemadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="contenedor mt-5">
+    <div class="p-4 bg-light rounded shadow">
+        <h1 class="display-4 text-center mb-3">Calculadora de Calorías Quemadas</h1>
+        <p class="text-center mb-4" style="font-size: 1.2rem;">
+            Esta herramienta te ayuda a estimar cuántas calorías quemas durante el ejercicio.
+            Simplemente introduce tu peso, el tiempo que has ejercitado y selecciona si has estado caminando o corriendo.
+        </p>
+        <p class="text-muted text-center mb-4">
+            Recuerda:
+        <ul class="text-muted">
+            <li>El peso debe estar entre 1 y 120 kg.</li>
+            <li>El tiempo de ejercicio debe ser entre 5 y 150 minutos.</li>
+            <li>Por defecto, la actividad de caminar está preseleccionada.</li>
+            <li>Una vez ingresados los datos correctamente, se te mostrarán las calorías que has quemado.</li>
+        </ul>
+        <form id="formularioCalorias">
+            <div class="mb-3">
+                <label for="peso" class="form-label">Peso (Kg)</label>
+                <input type="number" class="form-control" id="peso" placeholder="Introduce tu peso en kilogramos" min="1" max="120" required>
+            </div>
+            <div class="mb-3">
+                <label for="tiempo" class="form-label">Tiempo (minutos)</label>
+                <input type="number" class="form-control" id="tiempo" placeholder="Duración del ejercicio en minutos" min="5" max="150" required>
+            </div>
+            <div class="mb-4">
+                <label class="form-label d-block">Actividad</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="actividad" id="caminar" value="caminar" checked>
+                    <label class="form-check-label" for="caminar">Caminar</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="actividad" id="correr" value="correr">
+                    <label class="form-check-label" for="correr">Correr</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Calcular Calorías</button>
+        </form>
+        <div id="contenedorResultado" class="result-container alert alert-info mt-3" style="display: none;">
+        </div>
+        <ul id="listaCalculos" class="list-unstyled"></ul>
+        <button onclick="limpiarCalculos()" class="btn btn-danger mt-2">Limpiar Cálculos</button>
+    </div>
+</div>
+
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js.js"></script>
+</body>
+</html>
